@@ -1,0 +1,40 @@
+
+.filters {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  .styled-table th,
+  .styled-table td {
+    padding: 12px 15px;
+  }
+  
+  .styled-table thead tr {
+    background-color: #65ecd1;
+    color: #ffffff;
+    text-align: left;
+    border-bottom: 2px solid #dddddd;
+  }
+  
+  .styled-table th {
+    border-bottom: 2px solid #dddddd;
+  }
+  
+  .styled-table tbody {
+    background-color: #e78181;
+  }
+  
+  .styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #51f3d2;
+  }

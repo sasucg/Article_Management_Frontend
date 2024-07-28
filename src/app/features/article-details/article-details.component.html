@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="header">
+      <h1>Article Management System</h1>
+    </div>
+
+    <button (click)="goBack()">Back</button>
+
+    <div class="centered-wrapper" *ngIf="article">
+      <div>
+        <button (click)="editArticle(article.articleId)">Edit</button>
+        <button (click)="deleteArticle()">Delete</button>
+      </div>
+      <h2>Article: {{ article.name }}</h2>
+      <p><strong>Article Code:</strong> {{ article.articleCode }}</p>
+      <p><strong>Category:</strong> {{ article.articleCategoryName }}</p>
+      <p><strong>Status:</strong> {{ article.articleStatusName }}</p>
+      <p><strong>Publish Date:</strong> {{ article.publishDate | date }}</p>
+      <p><strong>Description:</strong> {{ article.description }}</p>
+    </div>
+  
+    <div *ngIf="!article">
+      <p>The article doesn't exist</p>
+    </div>
+</div>

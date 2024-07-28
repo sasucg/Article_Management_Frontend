@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="header">
+      <h1>Article Management System</h1>
+    </div>
+
+    <button (click)="goBack()">Back</button>
+
+    <div class="centered-wrapper">
+      <button (click)="resetFilters()"> Reset filters </button>
+      <div class="filters">
+        <input type="text" placeholder="Search by Name" [(ngModel)]="filters.name" (ngModelChange)="onFilterChange()">
+        
+        <input type="text" placeholder="Search by Code" [(ngModel)]="filters.code" (ngModelChange)="onFilterChange()">
+    
+        <select id="category" [(ngModel)]="filters.category" (ngModelChange)="onFilterChange()">
+          <option *ngFor="let category of categories" [value]="category.id">{{ category.value }}</option>
+        </select>
+    
+        <select id="status" [(ngModel)]="filters.status" (ngModelChange)="onFilterChange()">
+          <option *ngFor="let status of statuses" [value]="status.id">{{ status.value }}</option>
+        </select>
+    
+        <input id="startDate" type="date" [(ngModel)]="filters.startDate" (ngModelChange)="onFilterChange()">
+        <input id="endDate" type="date" [(ngModel)]="filters.endDate" (ngModelChange)="onFilterChange()">
+      </div>
+    
+      <div *ngIf="articles && articles.length > 0; else noData">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Article Code</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Publish Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let article of articles">
+              <td>{{ article.name }}</td>
+              <td>{{ article.articleCode }}</td>
+              <td>{{ article.articleCategoryName }}</td>
+              <td>{{ article.articleStatusName }}</td>
+              <td>{{ article.publishDate | date }}</td>
+              <td>
+                <button (click)="viewArticle(article.articleId)">View</button>
+                <button (click)="editArticle(article.articleId)">Edit</button>
+                <button (click)="deleteArticle(article.articleId)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ng-template #noData>
+        <p>No articles found.</p>
+      </ng-template>
+    </div>
+</div>
