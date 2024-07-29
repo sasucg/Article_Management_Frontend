@@ -84,18 +84,4 @@ export class ArticleService {
 
     return this.http.delete<any>(url, {params});
   }
-
-  // updateArticle(article: app.models.ArticleSaveModel): Observable<any> {
-  //   const url = `${this.apiUrl}/saveArticle`;
-  //   const body = {
-  //     name: article.name,
-  //     articleCode: article.articleCode,
-  //     articleCategoryId: article.articleCategoryId,
-  //     articleStatusId: article.articleStatusId,
-  //     publishDate: article.publishDate,
-  //     description: article.description,
-  //   };
-  //   return this.http.post<any>(url, body);
-  // }
-
 }
